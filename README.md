@@ -25,14 +25,18 @@ It focuses on classifying weather conditions from travel-destination images usin
 
 ```
 .
-├── Frozen_CNN.py                    # Feature extraction using frozen ConvNeXt-Tiny
-├── KNN.py                           # KNN baseline classifier (k=1 and k=3)
-├── Random_Forest.py                 # Random Forest with grid search tuning
-├── SVM.py                           # SVM with RBF kernel and StandardScaler
-├── main.py                          # EDA: dataset exploration and visualizations
-├── dataset.csv                      # Travel-destination dataset with image paths and labels
-├── features_convnext_tiny_224.npz   # Pre-extracted CNN feature vectors
-├── Images_Link.txt                  # Image URL references
+├── data/
+│   ├── dataset.csv                      # Travel-destination dataset with image paths and labels
+│   ├── features_convnext_tiny_224.npz   # Pre-extracted CNN feature vectors
+│   └── Images_Link.txt                  # Image URL references
+├── doc/
+│   └── Report.pdf                       # Full project report
+├── src/
+│   ├── Frozen_CNN.py                    # Feature extraction using frozen ConvNeXt-Tiny
+│   ├── KNN.py                           # KNN baseline classifier (k=1 and k=3)
+│   ├── Random_Forest.py                 # Random Forest with grid search tuning
+│   ├── SVM.py                           # SVM with RBF kernel and StandardScaler
+│   └── main.py                          # EDA: dataset exploration and visualizations
 └── README.md
 ```
 
@@ -119,23 +123,23 @@ pip install numpy pandas scikit-learn torch timm torchvision Pillow matplotlib
 ### 2. Extract CNN features (run once)
 
 ```bash
-python Frozen_CNN.py
+python src/Frozen_CNN.py
 ```
 
-> Reads `dataset.csv`, processes images from the `Image URL` column, and saves `features_convnext_tiny_224.npz`.
+> Reads `data/dataset.csv`, processes images from the `Image URL` column, and saves `data/features_convnext_tiny_224.npz`.
 
 ### 3. Run EDA
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 ### 4. Train and evaluate models
 
 ```bash
-python KNN.py
-python Random_Forest.py
-python SVM.py
+python src/KNN.py
+python src/Random_Forest.py
+python src/SVM.py
 ```
 
 > All three scripts load `features_convnext_tiny_224.npz` directly — no re-extraction needed.
@@ -154,6 +158,17 @@ python SVM.py
 
 ## References
 
+### Project Files
+
+* [ Feature Extractor (Frozen_CNN.py)](src/Frozen_CNN.py)
+* [ KNN Classifier (KNN.py)](src/KNN.py)
+* [ Random Forest (Random_Forest.py)](src/Random_Forest.py)
+* [ SVM Classifier (SVM.py)](src/SVM.py)
+* [ EDA Script (main.py)](src/main.py)
+* [ Dataset (dataset.csv)](data/dataset.csv)
+* [ Image Links (Images_Link.txt)](data/Images_Link.txt)
+* [ Report (Report.pdf)](doc/Report.pdf)
+
 ### Official Documentation
 
 * [Scikit-learn](https://scikit-learn.org/stable/)
@@ -165,12 +180,11 @@ python SVM.py
 
 ---
 
-## Author
+## Authors
 
-Ahmad Karmi  
-
-
-**Course:** Machine Learning and Data Science — ENCS5341
+* **Author:** Ahmad Karmi
+* **Course:** Machine Learning and Data Science — ENCS5341
+* **Institution:** Birzeit University
 
 ---
 
