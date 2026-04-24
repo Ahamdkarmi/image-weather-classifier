@@ -170,7 +170,7 @@ python SVM.py
 Ahmad Karmi  
 
 
-* **Course:** Machine Learning and Data Science — ENCS5341
+**Course:** Machine Learning and Data Science — ENCS5341
 
 ---
 
